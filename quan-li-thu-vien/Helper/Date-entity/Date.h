@@ -1,5 +1,6 @@
 #pragma once
-
+#include <iostream>
+#include <string>
 
 
 class Date
@@ -12,16 +13,6 @@ public:
 public:
 	Date();
 	Date(unsigned int day, unsigned int month, unsigned int year);
-	//const char* Stringfy();
+	std::string Stringfy();
+	bool Valid();
 };
-
-
-
-bool DateValidation(Date date);
-bool DateValidation(int day, int month, int year);
-
-
-
-
-
-

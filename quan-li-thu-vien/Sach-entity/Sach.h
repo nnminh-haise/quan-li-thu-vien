@@ -1,41 +1,62 @@
 ﻿#pragma once
 
+#include <iostream>
+#include <string>
+
+
+
 class Sach
 {
 public:
-    const char* m_MaSach;
-    const char* m_ViTri;
+    std::string m_MaSach;
+    std::string m_ViTri;
     int m_TrangThai;
 
 public:
     Sach();
-    Sach(const char* MaSach, const char* ViTri, int TrangThai);
+    Sach(std::string MaSach, std::string ViTri, int TrangThai);
     void Show();
 };
 
-struct node_DanhMucSach
+//* Linked list
+namespace DanhMucSach
 {
-    Sach value;
-    Sach* next;
-};
+    struct node
+    {
+    public:
+        Sach value;
+        node* next;
 
-typedef node_DanhMucSach* ptr_DanhMucSach;
+    public:
+        node();
+        node(Sach value, node* next);
+        ~node();
+    };
+
+    typedef node* pointer;
+
+
+    void Initialze(pointer& First);
+    void Traversal(pointer First);
+    int PushFront(pointer& First, Sach value);
+    int PushBack(pointer& First, Sach value);
+}
 
 
 
 class DauSach
 {
 public:
-    const char* m_IBSN;
-    const char* m_TenSach;
-    const char* m_TacGia;
-    const char* m_TheLoai;
+    std::string m_IBSN;
+    std::string m_TenSach;
     int m_SoTrang;
+    std::string m_TacGia;
     int m_NamXuatBan;
-    ptr_DanhMucSach m_DanhMucSach;
+    std::string m_TheLoai;
+    DanhMucSach::pointer m_DanhMucSach;
 
 public:
     DauSach();
-    DauSach(const char* IBSN, const char* TenSach, const char* TacGia, const char* TheLoai, int SoTrang, int NamXuatBan);
+    DauSach(std::string IBSN, std::string TenSach, std::string TacGia, std::string TheLoai, int SoTrang, int NamXuatBan);
     void Show();
 };

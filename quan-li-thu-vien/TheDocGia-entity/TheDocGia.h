@@ -8,24 +8,44 @@
 class MuonTra
 {
 public:
-	const char* m_MaSach;
+	std::string m_MaSach;
 	Date m_NgayMuon;
 	Date m_NgayTra;
 	int m_TrangThai;
 
 public:
 	MuonTra();
-	MuonTra(const char* MaSach, Date NgayMuon, Date NgayTra, int TrangThai);
+	MuonTra(std::string MaSach, Date NgayMuon, Date NgayTra, int TrangThai);
 	void Show();
 };
 
-struct node_DanhSachMuonTra
+//* Double linked list
+namespace DanhSachMuonTra
 {
-	MuonTra value;
-	MuonTra* previous, next;
-};
+	//* DanhSachMuonTra structure
+	struct node
+	{
+	public:
+		MuonTra value;
+		node* left;
+		node* right;
 
-typedef node_DanhSachMuonTra* ptr_DanhSachMuonTra;
+	public:
+		node();
+		node(MuonTra value, node* left, node* right);
+		~node();
+	};
+
+	typedef node* pointer;
+
+
+	//* DanhSachMuonTra methods begin below
+	void Initialize(pointer& First);
+	int PushFront(pointer& First, MuonTra value);
+	int PushBack(pointer& Last, MuonTra value);
+	void Traveral(pointer First);
+	void BackwardTraversal(pointer First);
+}
 
 
 
@@ -33,15 +53,21 @@ class TheDocGia
 {
 public:
 	int m_MaThe;
-	const char* m_Ho;
-	const char* m_Ten;
+	std::string m_Ho;
+	std::string m_Ten;
 	bool m_Phai;
 	int m_TrangThaiThe;
-	ptr_DanhSachMuonTra m_DanhSachMuonTra;
+	DanhSachMuonTra::pointer m_DanhSachMuonTra;
 
 public:
 	TheDocGia();
-	TheDocGia(int MaThe, const char* Ho, const char* Ten, bool Phai, int TrangThaiThe);
+	TheDocGia(int MaThe, std::string Ho, std::string Ten, bool Phai, int TrangThaiThe, DanhSachMuonTra::pointer DanhSachMuonTra);
+	~TheDocGia();
 	void Show();
 };
 
+//* Balance binary search tree
+namespace DanhSachTheDocGia
+{
+
+}
