@@ -10,7 +10,7 @@ int main()
     DauSach* danhSachDauSach[MAX_SIZE::DANH_SACH_DAU_SACH] {nullptr};
     DanhSachTheDocGia::pointer danhSachTheDocGia = nullptr;
 
-
+    std::cout << "hello" << std::endl;
 
     return 0;
 }
