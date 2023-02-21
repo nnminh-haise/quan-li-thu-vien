@@ -7,8 +7,10 @@
 
 int main()
 {
-    const int DANH_SACH_DAU_SACH_MAX = 1000;
-    DauSach* DanhSachDauSach[DANH_SACH_DAU_SACH_MAX] {nullptr};
+    DauSach* danhSachDauSach[MAX_SIZE::DANH_SACH_DAU_SACH] {nullptr};
+    DanhSachTheDocGia::pointer danhSachTheDocGia = nullptr;
+
+
 
     return 0;
 }

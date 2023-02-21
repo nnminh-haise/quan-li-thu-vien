@@ -10,13 +10,13 @@
 
 
 Sach::Sach()
-	: m_MaSach(VALUES::UNIDENTIFIED), m_ViTri(VALUES::UNIDENTIFIED), m_TrangThai(-1)
+	: m_MaSach(VALUES::UNIDENTIFIED), m_ViTri(VALUES::UNIDENTIFIED), m_TrangThai(UNSET)
 {
 	return;
 }
 
 
-Sach::Sach(std::string MaSach, std::string ViTri, int TrangThai)
+Sach::Sach(std::string MaSach, std::string ViTri, TrangThaiSach TrangThai)
 	: m_MaSach(MaSach), m_ViTri(ViTri), m_TrangThai(TrangThai)
 {
 	return;
@@ -27,7 +27,6 @@ void Sach::Show()
 {
 	std::cout << "[ Ma sach    ]: " << this->m_MaSach << std::endl;
 	std::cout << "[ Vi tri     ]: " << this->m_ViTri << std::endl;
-	std::cout << "[ Trang thai ]: " << this->m_TrangThai << std::endl;
 
 	BLANK_LINE;
 }

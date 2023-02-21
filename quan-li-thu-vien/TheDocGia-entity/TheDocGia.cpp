@@ -13,16 +13,22 @@
 
 
 MuonTra::MuonTra()
-	: m_MaSach(VALUES::UNIDENTIFIED), m_NgayMuon(Date()), m_NgayTra(Date()), m_TrangThai(-1)
+	: m_MaSach(VALUES::UNIDENTIFIED), m_NgayMuon(Date()), m_NgayTra(Date()), m_TrangThai(UNSET)
 {
 	return;
 }
 
 
-MuonTra::MuonTra(std::string MaSach, Date NgayMuon, Date NgayTra, int TrangThai)
+MuonTra::MuonTra(std::string MaSach, Date NgayMuon, Date NgayTra, TrangThaiMuonTra TrangThai)
 	: m_MaSach(MaSach), m_NgayMuon(NgayMuon), m_NgayTra(NgayTra), m_TrangThai(TrangThai)
 {
 	return;
+}
+
+
+void MuonTra::set_MaSach(std::string MaSach)
+{
+	this->m_MaSach = MaSach;
 }
 
 
@@ -31,7 +37,6 @@ void MuonTra::Show()
 	std::cout << std::format("Ma sach   : {}", this->m_MaSach) << std::endl;
 	std::cout << std::format("Ngay muon : {}", this->m_NgayMuon.Stringfy()) << std::endl;
 	std::cout << std::format("Ngay tra  : {}", this->m_NgayTra.Stringfy()) << std::endl;
-	std::cout << std::format("Trang thai: {}", this->m_TrangThai) << std::endl;
 
 	BLANK_LINE;
 }
@@ -103,13 +108,13 @@ void DanhSachMuonTra::BackwardTraversal(DanhSachMuonTra::pointer Last)
 
 
 TheDocGia::TheDocGia()
-	: m_MaThe(this->Generate_MaThe()), m_Ho(VALUES::UNIDENTIFIED), m_Ten(VALUES::UNIDENTIFIED), m_Phai(false), m_TrangThaiThe(-1), m_DanhSachMuonTra(nullptr)
+	: m_MaThe(this->Generate_MaThe()), m_Ho(VALUES::UNIDENTIFIED), m_Ten(VALUES::UNIDENTIFIED), m_Phai(false), m_TrangThaiThe(UNSET), m_DanhSachMuonTra(nullptr)
 {
 	return;
 }
 
 
-TheDocGia::TheDocGia(int MaThe, std::string Ho, std::string Ten, bool Phai, int TrangThaiThe, DanhSachMuonTra::pointer DanhSachMuonTra)
+TheDocGia::TheDocGia(int MaThe, std::string Ho, std::string Ten, bool Phai, TrangThaiThe TrangThaiThe, DanhSachMuonTra::pointer DanhSachMuonTra)
 	: m_MaThe(MaThe), m_Ho(Ho), m_Ten(Ten), m_Phai(Phai), m_TrangThaiThe(TrangThaiThe), m_DanhSachMuonTra(DanhSachMuonTra)
 {
 	return;
@@ -121,6 +126,10 @@ TheDocGia::~TheDocGia()
 	delete this->m_DanhSachMuonTra;
 }
 
+/*
+! This method only generate a random integer number base on the current time.
+TODO: Fix this method to generate random unique integer number. Represent the primary key for each object.
+*/
 int TheDocGia::Generate_MaThe()
 {
 	time_t timer;
