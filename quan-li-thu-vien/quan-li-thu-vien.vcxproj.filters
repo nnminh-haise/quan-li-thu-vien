@@ -27,7 +27,7 @@
     <ClCompile Include="Helper\Date-entity\Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Helper\Algorithms.cpp">
+    <ClCompile Include="Helper\StringLib\StringLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="Helper\Date-entity\Date.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Helper\Algorithms.h">
+    <ClInclude Include="Helper\StringLib\StringLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

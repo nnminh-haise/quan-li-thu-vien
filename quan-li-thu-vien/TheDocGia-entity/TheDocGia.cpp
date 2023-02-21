@@ -32,16 +32,6 @@ void MuonTra::set_MaSach(std::string MaSach)
 }
 
 
-void MuonTra::Show()
-{
-	std::cout << std::format("Ma sach   : {}", this->m_MaSach) << std::endl;
-	std::cout << std::format("Ngay muon : {}", this->m_NgayMuon.Stringfy()) << std::endl;
-	std::cout << std::format("Ngay tra  : {}", this->m_NgayTra.Stringfy()) << std::endl;
-
-	BLANK_LINE;
-}
-
-
 DanhSachMuonTra::node::node()
 	: value(MuonTra()), left(nullptr), right(nullptr)
 {
@@ -87,9 +77,6 @@ void DanhSachMuonTra::Traveral(DanhSachMuonTra::pointer First)
 {
 	for (MuonTra& nodeValue = First->value; First->right != nullptr; First = First->right)
 	{
-		nodeValue.Show();
-
-		BLANK_LINE;
 	}
 }
 
@@ -98,9 +85,6 @@ void DanhSachMuonTra::BackwardTraversal(DanhSachMuonTra::pointer Last)
 {
 	for (MuonTra& nodeValue = Last->value; Last->left != nullptr; Last = Last->left)
 	{
-		nodeValue.Show();
-
-		BLANK_LINE;
 	}
 }
 

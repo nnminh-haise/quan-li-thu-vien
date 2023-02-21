@@ -129,17 +129,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Helper\Algorithms.cpp" />
     <ClCompile Include="Helper\Date-entity\Date.cpp" />
     <ClCompile Include="quan-li-thu-vien.cpp" />
     <ClCompile Include="Sach-entity\Sach.cpp" />
+    <ClCompile Include="Helper\StringLib\StringLib.cpp" />
     <ClCompile Include="TheDocGia-entity\TheDocGia.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Helper\Algorithms.h" />
     <ClInclude Include="Helper\Date-entity\Date.h" />
     <ClInclude Include="Helper\Constants.h" />
     <ClInclude Include="Sach-entity\Sach.h" />
+    <ClInclude Include="Helper\StringLib\StringLib.h" />
     <ClInclude Include="TheDocGia-entity\TheDocGia.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

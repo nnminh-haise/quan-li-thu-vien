@@ -24,7 +24,6 @@ private:
 public:
 	MuonTra();
 	MuonTra(std::string MaSach, Date NgayMuon, Date NgayTra, TrangThaiMuonTra TrangThai);
-	void Show();
 
 	void set_MaSach(std::string MaSach);
 	void set_NgayMuon(Date NgayMuon);

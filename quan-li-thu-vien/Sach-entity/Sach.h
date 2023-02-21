@@ -4,9 +4,25 @@
 #include <string>
 
 
+/*
+* Mã sách: được sinh tự động.
+* Vị trí: Gồm các thông tin theo dạng: hàng x, cột y, tủ z (các số x, y, z là các số có 2 chữ số).
+* Trạng thái: gồm 3 trạng thái {0, 1, 2} (chi tiết ở dưới).
 
+---
+
+* Thuật toán sinh mã sách:
+*
+* Mã sách có dạng: [IBSN] + [Số lượng sách tương ứng tính tới cuốn sách hiện tại] + [x] + [y] + [z].
+* Ví dụ: Đầu sách A có IBSN là "CCNCT" và đã có 10 cuốn sách thuộc đầu sách tương ứng.
+* Hiện tại, cuốn sách đang được thêm là cuốn sách thứ 11. Và sẽ được đặt tại hàng 5, cột 6, tủ sách thứ 20.
+*
+* Khi đó cuốn sách sẽ có mã là "CCNCT" + "11" + "05" + "06" + "11" = "CCNCT11050611".
+* Số lượng cuốn sách cho mỗi đầu sách không quá 1000 cuốn.
+*/
 class Sach
 {
+//* Supporting struct and enum
 private:
     enum TrangThaiSach {
         UNSET = -1,
@@ -15,22 +31,46 @@ private:
         DA_THANH_LY = 2
     };
 
+    struct TypeViTri
+    {
+    private:
+        int m_row;    //* Hàng
+        int m_col;    //* Cột
+        int m_block;  //* Tủ sách
+
+    public:
+        TypeViTri();
+        TypeViTri(int row, int col, int block);
+
+        int Reader();
+        std::string Stringfy();
+    };
+
+
+//* Class attributes
 private:
     std::string m_MaSach;
-    std::string m_ViTri;
+    TypeViTri m_ViTri;
     TrangThaiSach m_TrangThai;
 
+
+//* Class support methods
+private:
+    std::string Generate_MaSach(std::string IBSN, int Order);
+
+
+//* Class main methods
 public:
     Sach();
-    Sach(std::string MaSach, std::string ViTri, TrangThaiSach TrangThai);
+    Sach(std::string MaSach, TypeViTri ViTri, TrangThaiSach TrangThai);
     void Show();
 
     void set_MaSach(std::string MaSach);
-    void set_ViTri(std::string ViTri);
+    void set_ViTri(TypeViTri ViTri);
     void set_TrangThai(TrangThaiSach TrangThai);
 
     std::string get_MaSach();
-    std::string get_ViTri();
+    TypeViTri get_ViTri();
     TrangThaiSach get_TrangThai();
 };
 
@@ -75,7 +115,6 @@ public:
     DauSach();
     DauSach(std::string IBSN, std::string TenSach, int SoTrang, std::string TacGia, int NamXuatBan, std::string TheLoai, DanhMucSach::pointer DanhMucSach);
     ~DauSach();
-    void Show();
 
     void set_IBSN(std::string IBSN);
     void set_TenSach(std::string TenSach);
