@@ -22,7 +22,6 @@ public:
 //* Double linked list
 namespace DanhSachMuonTra
 {
-	//* DanhSachMuonTra structure
 	struct node
 	{
 	public:
@@ -39,12 +38,11 @@ namespace DanhSachMuonTra
 	typedef node* pointer;
 
 
-	//* DanhSachMuonTra methods begin below
 	void Initialize(pointer& First);
 	int PushFront(pointer& First, MuonTra value);
 	int PushBack(pointer& Last, MuonTra value);
 	void Traveral(pointer First);
-	void BackwardTraversal(pointer First);
+	void BackwardTraversal(pointer Last);
 }
 
 
@@ -59,11 +57,13 @@ public:
 	int m_TrangThaiThe;
 	DanhSachMuonTra::pointer m_DanhSachMuonTra;
 
+private:
+	int Generate_MaThe();
+
 public:
 	TheDocGia();
 	TheDocGia(int MaThe, std::string Ho, std::string Ten, bool Phai, int TrangThaiThe, DanhSachMuonTra::pointer DanhSachMuonTra);
 	~TheDocGia();
-	void Show();
 };
 
 //* Balance binary search tree

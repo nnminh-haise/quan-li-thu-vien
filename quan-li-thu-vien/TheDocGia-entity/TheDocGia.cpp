@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <format>
+#include <time.h>
 
 
 #define BLANK_LINE std::cout << std::endl
@@ -12,7 +13,7 @@
 
 
 MuonTra::MuonTra()
-	: m_MaSach(Values::UNIDENTIFIED), m_NgayMuon(Date()), m_NgayTra(Date()), m_TrangThai(-1)
+	: m_MaSach(VALUES::UNIDENTIFIED), m_NgayMuon(Date()), m_NgayTra(Date()), m_TrangThai(-1)
 {
 	return;
 }
@@ -102,7 +103,7 @@ void DanhSachMuonTra::BackwardTraversal(DanhSachMuonTra::pointer Last)
 
 
 TheDocGia::TheDocGia()
-	: m_MaThe(-1), m_Ho(Values::UNIDENTIFIED), m_Ten(Values::UNIDENTIFIED), m_Phai(false), m_TrangThaiThe(-1), m_DanhSachMuonTra(nullptr)
+	: m_MaThe(this->Generate_MaThe()), m_Ho(VALUES::UNIDENTIFIED), m_Ten(VALUES::UNIDENTIFIED), m_Phai(false), m_TrangThaiThe(-1), m_DanhSachMuonTra(nullptr)
 {
 	return;
 }
@@ -118,4 +119,12 @@ TheDocGia::TheDocGia(int MaThe, std::string Ho, std::string Ten, bool Phai, int 
 TheDocGia::~TheDocGia()
 {
 	delete this->m_DanhSachMuonTra;
+}
+
+int TheDocGia::Generate_MaThe()
+{
+	time_t timer;
+	time(&timer);
+
+	return timer % MAX_SIZE::DANH_SACH_THE_DOC_GIA + 1;
 }

@@ -57,6 +57,13 @@ public:
 
 public:
     DauSach();
-    DauSach(std::string IBSN, std::string TenSach, std::string TacGia, std::string TheLoai, int SoTrang, int NamXuatBan);
+    DauSach(std::string IBSN, std::string TenSach, int SoTrang, std::string TacGia, int NamXuatBan, std::string TheLoai, DanhMucSach::pointer DanhMucSach);
+    ~DauSach();
     void Show();
 };
+
+//* Danh sách liên kết đơn
+namespace DanhSachDauSach
+{
+
+}

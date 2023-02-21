@@ -10,7 +10,7 @@
 
 
 Sach::Sach()
-	: m_MaSach(Values::UNIDENTIFIED), m_ViTri(Values::UNIDENTIFIED), m_TrangThai(-1)
+	: m_MaSach(VALUES::UNIDENTIFIED), m_ViTri(VALUES::UNIDENTIFIED), m_TrangThai(-1)
 {
 	return;
 }
@@ -93,15 +93,23 @@ int DanhMucSach::PushBack(DanhMucSach::pointer& First, Sach value)
 
 
 DauSach::DauSach()
-	: m_IBSN(Values::UNIDENTIFIED), m_TenSach(Values::UNIDENTIFIED), m_TacGia(Values::UNIDENTIFIED), m_TheLoai(Values::UNIDENTIFIED), m_SoTrang(-1), m_NamXuatBan(-1), m_DanhMucSach(nullptr)
+	: m_IBSN(VALUES::UNIDENTIFIED), m_TenSach(VALUES::UNIDENTIFIED), m_SoTrang(-1), m_TacGia(VALUES::UNIDENTIFIED), m_NamXuatBan(-1), m_TheLoai(VALUES::UNIDENTIFIED), m_DanhMucSach(nullptr)
 {
 	return;
 }
 
-DauSach::DauSach(std::string IBSN, std::string TenSach, std::string TacGia, std::string TheLoai, int SoTrang, int NamXuatBan)
-	: m_IBSN(IBSN), m_TenSach(TenSach), m_TacGia(TacGia), m_TheLoai(TheLoai), m_SoTrang(SoTrang), m_NamXuatBan(NamXuatBan)
+
+DauSach::DauSach(std::string IBSN, std::string TenSach, int SoTrang, std::string TacGia, int NamXuatBan, std::string TheLoai, DanhMucSach::pointer DanhMucSach)
+	: m_IBSN(IBSN), m_TenSach(TenSach), m_SoTrang(SoTrang), m_TacGia(TacGia), m_NamXuatBan(NamXuatBan), m_TheLoai(TheLoai), m_DanhMucSach(DanhMucSach)
 {
 }
+
+
+DauSach::~DauSach()
+{
+	delete this->m_DanhMucSach;
+}
+
 
 void DauSach::Show()
 {
