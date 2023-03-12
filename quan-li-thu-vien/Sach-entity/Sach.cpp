@@ -110,6 +110,7 @@ int DanhMucSach::PushBack(DanhMucSach::pointer& First, Sach value)
 
 
 
+
 DauSach::DauSach()
 	: m_IBSN(VALUES::UNIDENTIFIED), m_TenSach(VALUES::UNIDENTIFIED), m_SoTrang(-1), m_TacGia(VALUES::UNIDENTIFIED), m_NamXuatBan(-1), m_TheLoai(VALUES::UNIDENTIFIED), m_DanhMucSach(nullptr)
 {
@@ -128,3 +129,8 @@ DauSach::~DauSach()
 	delete this->m_DanhMucSach;
 }
 
+
+DanhMucSach::pointer DauSach::get_DanhMucSach()
+{
+	return nullptr;
+}

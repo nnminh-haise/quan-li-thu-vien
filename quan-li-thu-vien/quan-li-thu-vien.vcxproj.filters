@@ -30,6 +30,18 @@
     <ClCompile Include="Helper\StringLib\StringLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UI-lib\Elements\Elements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI-lib\Shapes\Shapes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UI-lib\Menu\Menu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Views\MainMenu\MainView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sach-entity\Sach.h">
@@ -45,6 +57,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Helper\StringLib\StringLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI-lib\Elements\Elements.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI-lib\Shapes\Shapes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UI-lib\Menu\Menu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Views\MainMenu\MainView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
