@@ -25,6 +25,7 @@ Elements::Size::Size(int width, int height) : width(width), height(height) {
 Elements::GraphicWindow::GraphicWindow() : windowSize(500, 500), title("Default graphical window!") {
 }
 
+
 Elements::GraphicWindow::GraphicWindow(int width, int height, std::string title) {
 	this->windowSize = Elements::Size(width, height);
 	this->title = title;
@@ -37,6 +38,7 @@ int Elements::GraphicWindow::Initialize() {
 	);
 
 	return windowsIndex;
+
 }
 
 int Elements::GraphicWindow::Deconstruct() {
